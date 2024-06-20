@@ -68,7 +68,7 @@ function App() {
             </button>
           </form>
           <div className="create-account">
-            Don't have an account? <a href="#">Create an account</a>
+            Don't have an account? <a href="#">Create an account </a>
           </div>
         </div>
       </div>
