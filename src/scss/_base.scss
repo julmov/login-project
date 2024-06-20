@@ -1,0 +1,20 @@
+@use "variables" as var; 
+
+
+@mixin flex(){
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+body, #root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  @include flex();
+  flex-direction: row;
+  height: 100vh;
+  width: 100%;
+  font-family: var.$roboto;
+}

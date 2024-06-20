@@ -1,0 +1,185 @@
+@use "variables" as var; 
+@use "base";
+@use "left";
+
+@mixin flex(){
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.leftBox {
+@include flex();
+background: var.$bg;
+justify-content: flex-start;
+width: 55vw;
+height: 100vh;
+overflow: hidden;
+padding: 40px;
+color: white;
+text-align: left;
+ position: relative;
+.content{
+  padding: 0;
+  padding-top: 10%;
+width: 90%;
+}
+p{
+  width: 85%;
+  position: relative;
+z-index: 3;
+}
+}
+
+.logo-text{
+  @include flex();
+  flex-direction: row;
+  text-align: left;
+}
+
+.logo{
+  border: 2px solid white;
+  width: 10px;
+  height: 10px;
+  display: flex;
+}
+
+.glass {
+  position: absolute;
+  background-color: rgba(0, 255, 255, 0.153);
+  width: 400px;
+  height: 470px;
+  transform: rotate(-50deg);
+  top: 220px;
+  left: -180px;
+
+background: rgba(255, 255, 255, 0);
+
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(17.5px);
+-webkit-backdrop-filter: blur(17.5px);
+
+}
+
+.circle{
+  @include flex();
+  margin-top: 10vh;
+  width: calc(100% - 20px);
+  height: 500px;
+  border-radius: 50%;
+  background-color: rgb(229, 170, 219);
+
+}
+
+.little-circle{
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background-color: rgb(92, 1, 153);
+}
+
+
+.rightBox {
+  @include flex();
+  width: 45vw;
+  text-align: center;
+}
+
+h1{
+  color: white;
+  width: 70%;
+  font-size: 38px;
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 3;
+}
+
+.divider {
+    margin: 1rem 0;
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+.input-group {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.forgot-password {
+    font-size: 0.8rem;
+    color: #007bff;
+    text-decoration: none;
+    float: right;
+    margin-top: 0.3rem;
+    margin: 10px;
+}
+
+.login-btn {
+    background-color: #0e0e0e;
+    color: white;
+    border: none;
+    padding: 0.7rem 1rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.create-account {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.create-account a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.password-group {
+  position: relative;
+}
+
+.password-toggle-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(5%);
+  cursor: pointer;
+}
+
+.google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 10px;
+  background: none;
+  border: 1px solid #ccc;
+  font-weight: bold;
+  color: #272525;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.google-btn .google-icon {
+  margin-right: 10px;
+  height: 20px;
+  width: 20px;
+}
