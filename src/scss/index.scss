@@ -1,6 +1,6 @@
 @use "variables" as var;
 @use "base";
-@use "left";
+@use "decor";
 
 @mixin flex() {
   display: flex;
@@ -9,11 +9,12 @@
   justify-content: center;
 }
 
+
 .leftBox {
   @include flex();
   background: var.$bg;
   justify-content: flex-start;
-  width: 50vw;
+  width: 50%;
   height: 100vh;
   overflow: hidden;
   padding: 40px;
@@ -34,66 +35,12 @@
   }
 }
 
-.logo-text {
-  @include flex();
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
-  width: 100%;
-  padding-left: 10px; // Adjust this value to your preference
-}
-
-.logo-box {
-  display: flex;
-  flex-direction: row;
-  transform: rotate(-30deg);
-  width: 30px;
-}
-
-.logo {
-  border: 3px solid white;
-  width: 8px;
-  height: 11px;
-  display: flex;
-  transform: rotate(38deg) scale(1, 0.5);
-}
-
-.glass {
-  position: absolute;
-  background-color: rgba(0, 255, 255, 0.153);
-  width: 400px;
-  height: 470px;
-  transform: rotate(-50deg);
-  top: 220px;
-  left: -180px;
-  background: rgba(255, 255, 255, 0);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(17.5px);
-  -webkit-backdrop-filter: blur(17.5px);
-}
-
-.circle {
-  @include flex();
-  margin-top: 10vh;
-  width: calc(100% - 20px);
-  height: 500px;
-  border-radius: 50%;
-  background-color: rgb(229, 170, 219);
-}
-
-.little-circle {
-  height: 150px;
-  width: 150px;
-  margin-top: -40px;
-  border-radius: 50%;
-  background-color: rgb(92, 1, 153);
-}
 
 /* Right part of screen design starts here */
 
 .rightBox {
   @include flex();
-  width: 50vw;
+  width: 50%;
   text-align: center;
    padding: 0;
        box-sizing: border-box; // Ensure padding and border are included in the width
