@@ -1,21 +1,22 @@
-import React, { useState } from "react";
+// src/App.js
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import LoginForm from "./components/LoginForm";
 import RegisterForm from "./components/RegisterForm";
+import MainPage from "./components/MainPage";
 
 function App() {
-  const [isLoginForm, setIsLoginForm] = useState(true);
-
-  const toggleForm = () => {
-    setIsLoginForm((prev) => !prev);
-  };
-
   return (
-    <>
+    <Router>
       <div className="leftBox">
         <div className="content">
           <p className="logo-text">
-            <span className="logo"></span>Nextgen
+            <span className="logo-box">
+              <span className="logo"></span>
+              <span className="logo"></span>
+            </span>
+            Nextgen
           </p>
           <h1>Efficient Prospect to Customer Conversion Strategies.</h1>
           <p>
@@ -28,12 +29,12 @@ function App() {
           </div>
         </div>
       </div>
-      {isLoginForm ? (
-        <LoginForm toggleForm={toggleForm} />
-      ) : (
-        <RegisterForm toggleForm={toggleForm} />
-      )}
-    </>
+      <Routes>
+        <Route path="/" element={<LoginForm />} />
+        <Route path="/register" element={<RegisterForm />} />
+        <Route path="/main" element={<MainPage />} />
+      </Routes>
+    </Router>
   );
 }
 

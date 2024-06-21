@@ -1,10 +1,11 @@
+// src/components/RegisterForm.js
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import google from "../assets/google-icon.svg";
 import "../App.css";
 
-const RegisterForm = ({ toggleForm }) => {
+const RegisterForm = () => {
   const [formData, setFormData] = useState({
     email: "",
     username: "",
@@ -42,7 +43,7 @@ const RegisterForm = ({ toggleForm }) => {
       console.log(data); // Handle the response data as needed
 
       if (response.ok) {
-        navigate("/"); // Use navigate function after successful registration
+        navigate("/main"); // Navigate to the main page after successful registration
       }
     } catch (error) {
       console.error("Error:", error);
@@ -58,7 +59,10 @@ const RegisterForm = ({ toggleForm }) => {
           <img src={google} alt="google icon" className="google-icon" />
           Sign up with Google
         </button>
-        <p>-------------- OR ---------------</p>
+        <div className="or">
+          <span>_______________________</span> <p>OR</p>{" "}
+          <span>_______________________</span>
+        </div>
         <form onSubmit={handleSubmit}>
           <div className="input-group">
             <label htmlFor="email">Email</label>
@@ -107,10 +111,7 @@ const RegisterForm = ({ toggleForm }) => {
           </button>
         </form>
         <div className="create-account">
-          Already have an account?{" "}
-          <a href="#" onClick={toggleForm}>
-            Log in
-          </a>
+          Already have an account? <a href="/">Log in</a>
         </div>
       </div>
     </div>

@@ -1,10 +1,11 @@
+// src/components/LoginForm.js
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import google from "../assets/google-icon.svg";
 import "../App.css";
 
-const LoginForm = ({ toggleForm }) => {
+const LoginForm = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -40,7 +41,7 @@ const LoginForm = ({ toggleForm }) => {
       const data = await response.json();
       console.log(data); // Handle the response data as needed
 
-      // Redirect to Welcome page if login is successful
+      // Redirect to Main page if login is successful
       if (response.ok && data.token) {
         // Save the token to localStorage
         localStorage.setItem("token", JSON.stringify({ token: data.token }));
@@ -48,7 +49,7 @@ const LoginForm = ({ toggleForm }) => {
           "email",
           JSON.stringify({ email: formData.email })
         ); // Assuming email is the username
-        navigate("/"); // Use navigate function
+        navigate("/main"); // Navigate to the main page
       }
     } catch (error) {
       console.error("Error:", error);
@@ -64,7 +65,9 @@ const LoginForm = ({ toggleForm }) => {
           <img src={google} alt="google icon" className="google-icon" />
           Sign in with Google
         </button>
-        <p>-------------- OR ---------------</p>
+        <div className="or">
+          <span>_______________________</span> <p>OR</p> <span>_______________________</span>
+        </div>
         <form onSubmit={handleSubmit}>
           <div className="input-group">
             <label htmlFor="email">Email</label>
@@ -104,10 +107,7 @@ const LoginForm = ({ toggleForm }) => {
           </button>
         </form>
         <div className="create-account">
-          Don't have an account?{" "}
-          <a href="#" onClick={toggleForm}>
-            Create an account{" "}
-          </a>
+          Don't have an account? <a href="/register">Create an account</a>
         </div>
       </div>
     </div>
