@@ -1,20 +1,22 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
-import google from "./assets/google-icon.svg"
+import LoginForm from "./components/LoginForm";
+import RegisterForm from "./components/RegisterForm";
 
 function App() {
-  const [passwordShown, setPasswordShown] = useState(false);
+  const [isLoginForm, setIsLoginForm] = useState(true);
 
-  const togglePasswordVisibility = () => {
-    setPasswordShown(!passwordShown);
+  const toggleForm = () => {
+    setIsLoginForm((prev) => !prev);
   };
 
   return (
     <>
       <div className="leftBox">
         <div className="content">
-          <p className="logo-text"><span className="logo"></span>Nextgen</p>
+          <p className="logo-text">
+            <span className="logo"></span>Nextgen
+          </p>
           <h1>Efficient Prospect to Customer Conversion Strategies.</h1>
           <p>
             Provide a complimentary trial or demonstration of your product or
@@ -26,52 +28,11 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="rightBox">
-        <div>
-          <h2>Login Your Account &#128578;</h2>
-          <p>Kindly log in to gain access to your account.</p>
-          <button className="google-btn">
-            <img src={google} alt="google icon" className="google-icon" />
-            Sign in with Google
-          </button>
-          <p>-------------- OR ---------------</p>
-          <form>
-            <div className="input-group">
-              <label htmlFor="email">Email</label>
-              <input
-                type="email"
-                id="email"
-                placeholder="Enter your email"
-                required
-              />
-            </div>
-            <div className="input-group password-group">
-              <label htmlFor="password">Password</label>
-              <input
-                type={passwordShown ? "text" : "password"}
-                id="password"
-                placeholder="Enter your password"
-                required
-              />
-              <span
-                className="password-toggle-icon"
-                onClick={togglePasswordVisibility}
-              >
-                {passwordShown ? <FaEyeSlash /> : <FaEye />}
-              </span>
-              <a href="#" className="forgot-password">
-                Forgot password?
-              </a>
-            </div>
-            <button type="submit" className="login-btn">
-              Log in
-            </button>
-          </form>
-          <div className="create-account">
-            Don't have an account? <a href="#">Create an account </a>
-          </div>
-        </div>
-      </div>
+      {isLoginForm ? (
+        <LoginForm toggleForm={toggleForm} />
+      ) : (
+        <RegisterForm toggleForm={toggleForm} />
+      )}
     </>
   );
 }
