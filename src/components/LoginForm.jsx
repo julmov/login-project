@@ -3,21 +3,26 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import google from "../assets/google-icon.svg";
-import "../App.css";
 import LeftBox from "../components/LeftBox";
 
+
+//State Variables 
 const LoginForm = () => {
+  //holds the values of the email and password fields
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+  //a boolean state to toggle the visibility of the password
   const [passwordShown, setPasswordShown] = useState(false);
+  //hook to navigate to different routes
   const navigate = useNavigate();
 
+  //show or hide passsword
   const togglePasswordVisibility = () => {
     setPasswordShown(!passwordShown);
   };
-
+  //updating the formData state when the user types in the email or password fields
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -40,14 +45,13 @@ const LoginForm = () => {
         }
       );
       const data = await response.json();
-      console.log(data); // Handle the response data as needed
+      console.log(data);
 
-      // Redirect to Main page if login is successful
+      // Check if response correct
       if (response.ok && data.token) {
         // Save the token to localStorage
         localStorage.setItem("token", JSON.stringify({ token: data.token }));
-        localStorage.setItem("username", JSON.stringify({ username: formData.email })); // Save email as username
-        navigate("/main"); // Navigate to the main page
+        navigate("/main"); // Navigate to the main page  if login is successful
       }
     } catch (error) {
       console.error("Error:", error);

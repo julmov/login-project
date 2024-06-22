@@ -41,7 +41,7 @@ const RegisterForm = () => {
         }
       );
       const data = await response.json();
-      console.log(data); // Handle the response data as needed
+      console.log(data); 
 
       if (response.ok) {
         navigate("/main"); // Navigate to the main page after successful registration

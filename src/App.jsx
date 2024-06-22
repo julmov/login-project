@@ -10,7 +10,6 @@ function App() {
   return (
     <Router>
       <div className="app-container">
-
         <Routes>
           <Route path="/" element={<LoginForm />} />
           <Route path="/register" element={<RegisterForm />} />

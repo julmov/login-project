@@ -1,12 +1,5 @@
 @use "variables" as var; 
-
-
-@mixin flex(){
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
+@import "mixin";
 
 body, #root {
   margin: 0;
